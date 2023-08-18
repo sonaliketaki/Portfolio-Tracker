@@ -9,6 +9,9 @@ This is a Streamlit-based web application for managing a stock portfolio. The ap
 
 1. Make sure you have Python installed (version 3.7 or higher).
 2. Clone this repository to your local machine.
+   ```python
+   git clone https://github.com/sonaliketaki/Portfolio-Tracker.git
+   ```
 3. Navigate to the project directory and create a virtual environment (recommended)
   ```python
   python -m venv venv
