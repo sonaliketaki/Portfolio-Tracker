@@ -7,12 +7,13 @@ This is a Streamlit-based web application for managing a stock portfolio. The ap
 
 ## Installation
 
-1. Make sure you have Python installed (version 3.7 or higher).
-2. Clone this repository to your local machine.
+1. Make sure you have Python installed (version 3.6 or higher; I personally used 3.6.6).
+2. Create a new database named "stock_portfolio" using your preferred PostgreSQL management tool (e.g., pgAdmin, command line).
+3. Clone this repository to your local machine.
 ```python
 git clone https://github.com/sonaliketaki/Portfolio-Tracker.git
 ```
-3. Navigate to the project directory and create a virtual environment (recommended)
+4. Navigate to the project directory and create a virtual environment (recommended)
   ```python
   python -m venv venv
   ```
@@ -35,13 +36,13 @@ git clone https://github.com/sonaliketaki/Portfolio-Tracker.git
   ```bash
   .venv/Scripts/activate.bat
   ```
-4. Install the required packages using the following command:
+5. Install the required packages using the following command:
 
   ```bash
   pip install -r requirements.txt
   ```
 
-5. Set up the PostgreSQL database:
+6. Set up the PostgreSQL database:
   Make sure you have PostgreSQL installed and running.
   Update the database configuration details in db_params located in the database.py file according to your setup.
 
@@ -53,12 +54,6 @@ git clone https://github.com/sonaliketaki/Portfolio-Tracker.git
           "host": "localhost",
           "port": "5432", 
       }
-  ```
-    
-  Run the following commands to create the required tables:
-  
-  ```bash
-  python database.py
   ```
 
 ## Usage
