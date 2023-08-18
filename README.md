@@ -73,5 +73,5 @@ The application will open in your default web browser.
 The application uses the Alpha Vantage API to fetch stock data.
 The database is managed using PostgreSQL.
 
-###Footnote
+### Footnote
 I had trouble implementing the functionality to update the portfolio every 5 seconds which is why I included a way to manually update the portfolio after a stock is added or removed. I will study how to properly implement this in the correct way. 
