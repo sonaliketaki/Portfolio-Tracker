@@ -1,5 +1,5 @@
 import streamlit as st
-from stock_functions import fetch_stock_data, add_stock_to_portfolio, get_portfolio, remove_stock_from_portfolio, fetch_historical_data
+from portfolio_functions import fetch_stock_data, add_stock_to_portfolio, get_portfolio, remove_stock_from_portfolio, fetch_historical_data
 from database import connect_to_database
 import pandas as pd
 import plotly.express as px
