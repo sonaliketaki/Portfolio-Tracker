@@ -1,8 +1,6 @@
 # Portfolio
 This is a Streamlit-based web application for managing a stock portfolio. The app allows users to view their portfolio, search for stock quotes, add and remove stocks from the portfolio, and view historical stock trends.
 
-<img width="891" alt="image" src="https://github.com/sonaliketaki/Portfolio-Tracker/assets/83692145/6efbc4bb-78a0-4012-a04d-92a57420aab9">
-
 ## Installation
 
 1. Make sure you have Python installed (version 3.7 or higher).
