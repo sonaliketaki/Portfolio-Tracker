@@ -13,7 +13,7 @@ try:
 
     st.subheader("Portfolio")
     portfolio = get_portfolio(connection)
-  
+
     if not portfolio:
         st.write("No stocks in portfolio.")
     else:
@@ -25,17 +25,21 @@ try:
     st.subheader("Search for Stock Quote")
 
     stock_symbol = st.text_input("Enter Stock Symbol (e.g., AAPL):")
+
     st.write('Select a data range to see', stock_symbol, 'trends')
+
     start_date = st.date_input('Start Date')
     end_date = st.date_input('End Date')
    
     stock_data = fetch_stock_data(stock_symbol)
+    
     if st.button("Stock Information"):
+        
         historical_data = fetch_historical_data(stock_symbol, start_date, end_date)
 
         if not historical_data.empty:
-            fig = px.line(historical_data, x=historical_data.index, y='close', title=f'{stock_symbol} Stock Trend')
-            st.plotly_chart(fig)
+            historical_fig = px.line(historical_data, x=historical_data.index, y='close', title=f'{stock_symbol} Stock Trend')
+            st.plotly_chart(historical_fig)
         else:
             st.write("No historical data available for the selected dates.")
 
@@ -51,13 +55,17 @@ try:
             st.write("Change:", stock_data["change"])
             st.write("Change %:", stock_data["change_percent"])
             
+
     st.subheader("Add Stock to Portfolio")
     shares_owned = st.number_input("Enter Shares Owned:", min_value=0, step=1, value=0)
+
     if st.button("Add to Portfolio"):       
         if stock_data:
             if len(portfolio) < 5:
                 add_stock_to_portfolio(connection, stock_data["symbol"], stock_data["last_trade_price"], shares_owned)
                 st.write("Stock added to Stocks table:", stock_data["symbol"])
+                if st.button("Refresh Portfolio"):
+                    portfolio = get_portfolio(connection)
         else:
             st.write("Portfolio is already full. Maximum of 5 stocks allowed.")
     else:
@@ -66,10 +74,13 @@ try:
 
     st.subheader("Remove Stock from Portfolio")
     selected_stock = st.selectbox("Select Stock to Remove:", portfolio_df["Symbol"])
-    st.subheader("Remove Stock from Portfolio")
+
     if st.button("Remove Selected Stock"):
         remove_stock_from_portfolio(connection, selected_stock)
         st.write(selected_stock, " successfully removed")
+    
+    if st.button("Refresh Portfolio"):
+        portfolio = get_portfolio(connection)
 
 except Exception as error:
     print(error)
